@@ -1,32 +1,17 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
-import { PrismaPg } from '@prisma/adapter-pg';
+import { Injectable } from "@nestjs/common";
+import { PrismaPg } from "@prisma/adapter-pg";
+import { PrismaClient } from "../../../generated/prisma/client";
 
 @Injectable()
 export class PrismaService extends PrismaClient {
   constructor() {
-    const connectionString = `${process.env.DATABASE_URL}`;
+    const connectionString = process.env.DATABASE_URL;
+
+    if (!connectionString) {
+      throw new Error("DATABASE_URL is not set");
+    }
+
     const adapter = new PrismaPg({ connectionString });
     super({ adapter });
   }
 }
-
-// import { Injectable } from '@nestjs/common';
-// import { PrismaClient } from './generated/prisma/client.js';
-// import { PrismaPg } from '@prisma/adapter-pg';
-
-
-// const connectionString = `${process.env.DATABASE_URL}`;
-
-// const adapter = new PrismaPg({ connectionString });
-// const prisma = new PrismaClient({ adapter });
-
-// @Injectable()
-// export class PrismaService extends PrismaClient {
-//   constructor() {
-//     const adapter = new PrismaPg({
-//       connectionString,
-//     });
-//     super({ adapter });
-//   }
-// }

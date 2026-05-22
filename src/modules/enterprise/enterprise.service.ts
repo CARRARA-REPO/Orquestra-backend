@@ -25,7 +25,9 @@ export class EnterpriseService {
       data: {
         ...data,
         password: hashPassword,
-        address: data.address,
+        address: {
+          create:data.address
+        }
       },
     });
 

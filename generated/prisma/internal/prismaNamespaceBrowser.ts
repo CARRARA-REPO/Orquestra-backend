@@ -93,8 +93,6 @@ export type AddressScalarFieldEnum = (typeof AddressScalarFieldEnum)[keyof typeo
 
 export const EnterpriseScalarFieldEnum = {
   id: 'id',
-  email: 'email',
-  password: 'password',
   name: 'name',
   contact_1: 'contact_1',
   contact_2: 'contact_2',

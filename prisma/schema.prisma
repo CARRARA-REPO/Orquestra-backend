@@ -17,16 +17,13 @@ model Address {
   state        String?
   complement   String?
 
- 
-
   enterprises Enterprise?
 }
 
 model Enterprise {
   //user data
   id           String  @id @unique @default(uuid())
-  email        String  @unique
-  password     String
+  
   name         String?
   contact_1    String
   contact_2    String?
@@ -87,7 +84,9 @@ model Member {
   roles Role[]
   enterpriseId String
   enterprise    Enterprise @relation(fields: [enterpriseId], references: [id], onDelete: Cascade)
-
+  
+  
+  @@unique([name, enterpriseId])
   @@index([enterpriseId])
   @@unique([email, enterpriseId])
 }

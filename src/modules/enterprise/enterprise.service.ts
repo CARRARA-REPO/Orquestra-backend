@@ -19,25 +19,61 @@ export class EnterpriseService {
   async create(data: Prisma.EnterpriseCreateInput) {
     await this.validateUniqueFields(data);
 
-    const hashPassword = await b.hash(data.password, 10);
+    return await this.prisma.$transaction(async (tx) => {
 
-    const user = await this.prisma.enterprise.create({
-      data: {
-        ...data,
-        password: hashPassword,
-        address: {
-          create:data.address
-        }
-      },
+      const hashPassword = await b.hash(data.password, 10);
+
+      // CREATE ENTERPRISE
+      const enterprise = await tx.enterprise.create({
+        data: {
+          ...data,
+          password: hashPassword,
+          address: {
+            create: data.address,
+          },
+        },
+      });
+
+      // CREATE DEFAULT ROLE
+      const adminRole = await tx.role.create({
+        data: {
+          name: 'ADMIN',
+          enterpriseID: enterprise.id,
+        },
+      });
+
+      // CREATE DEFAULT MODULE
+      const operationalModule =
+        await tx.administrativeModule.create({
+          data: {
+            name: 'Operacional',
+            enterpriseId: enterprise.id,
+          },
+        });
+
+      // CREATE DEFAULT SECTOR
+      const defaultSector = await tx.sector.create({
+        data: {
+          name: 'Administrativo',
+          administrativeModuleId: operationalModule.id,
+        },
+      });
+
+      const { password, ...enterpriseWithoutPassword } =
+        enterprise;
+
+      return {
+        enterprise: enterpriseWithoutPassword,
+        bootstrap: {
+          role: adminRole,
+          module: operationalModule,
+          sector: defaultSector,
+        },
+      };
     });
-
-    const { password, ...userWithoutPassword } = user;
-
-    return {user: userWithoutPassword}
-  
   }
 
-  async userExists({id,email,stripe_connect_id,stripe_id}:{id?: string, email?: string, stripe_id?: string, stripe_connect_id?: string}) {
+  async userExists({ id, email, stripe_connect_id, stripe_id }: { id?: string, email?: string, stripe_id?: string, stripe_connect_id?: string }) {
     if (!id && !email && !stripe_id && !stripe_connect_id) {
       throw new Error("Pelo menos um identificador deve ser fornecido.");
     }
@@ -50,7 +86,7 @@ export class EnterpriseService {
             email ? { email } : undefined,
             stripe_id ? { stripe_id } : undefined,
             stripe_connect_id ? { stripe_connect_id } : undefined,
-          ].filter(Boolean) as any, 
+          ].filter(Boolean) as any,
         },
       });
 
@@ -76,7 +112,7 @@ export class EnterpriseService {
   }
 
   private async validateUniqueFields(data: Prisma.EnterpriseCreateInput) {
-    const { email,cnpj } = data;
+    const { email, cnpj } = data;
 
     const [emailExists, cnpjExists] = await Promise.all([
       this.prisma.enterprise.findUnique({ where: { email } }),
@@ -91,7 +127,7 @@ export class EnterpriseService {
       throw new ConflictException('Já existe um usuário com esse CNPJ');
     }
   }
-  
+
   async findByEmail(email: string) {
     const user = await this.prisma.enterprise.findUnique({ where: { email } });
     return user;

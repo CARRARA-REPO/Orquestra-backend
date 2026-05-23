@@ -26,8 +26,6 @@ export type AggregateEnterprise = {
 
 export type EnterpriseMinAggregateOutputType = {
   id: string | null
-  email: string | null
-  password: string | null
   name: string | null
   contact_1: string | null
   contact_2: string | null
@@ -40,8 +38,6 @@ export type EnterpriseMinAggregateOutputType = {
 
 export type EnterpriseMaxAggregateOutputType = {
   id: string | null
-  email: string | null
-  password: string | null
   name: string | null
   contact_1: string | null
   contact_2: string | null
@@ -54,8 +50,6 @@ export type EnterpriseMaxAggregateOutputType = {
 
 export type EnterpriseCountAggregateOutputType = {
   id: number
-  email: number
-  password: number
   name: number
   contact_1: number
   contact_2: number
@@ -70,8 +64,6 @@ export type EnterpriseCountAggregateOutputType = {
 
 export type EnterpriseMinAggregateInputType = {
   id?: true
-  email?: true
-  password?: true
   name?: true
   contact_1?: true
   contact_2?: true
@@ -84,8 +76,6 @@ export type EnterpriseMinAggregateInputType = {
 
 export type EnterpriseMaxAggregateInputType = {
   id?: true
-  email?: true
-  password?: true
   name?: true
   contact_1?: true
   contact_2?: true
@@ -98,8 +88,6 @@ export type EnterpriseMaxAggregateInputType = {
 
 export type EnterpriseCountAggregateInputType = {
   id?: true
-  email?: true
-  password?: true
   name?: true
   contact_1?: true
   contact_2?: true
@@ -185,8 +173,6 @@ export type EnterpriseGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 
 export type EnterpriseGroupByOutputType = {
   id: string
-  email: string
-  password: string
   name: string | null
   contact_1: string
   contact_2: string | null
@@ -220,8 +206,6 @@ export type EnterpriseWhereInput = {
   OR?: Prisma.EnterpriseWhereInput[]
   NOT?: Prisma.EnterpriseWhereInput | Prisma.EnterpriseWhereInput[]
   id?: Prisma.StringFilter<"Enterprise"> | string
-  email?: Prisma.StringFilter<"Enterprise"> | string
-  password?: Prisma.StringFilter<"Enterprise"> | string
   name?: Prisma.StringNullableFilter<"Enterprise"> | string | null
   contact_1?: Prisma.StringFilter<"Enterprise"> | string
   contact_2?: Prisma.StringNullableFilter<"Enterprise"> | string | null
@@ -238,8 +222,6 @@ export type EnterpriseWhereInput = {
 
 export type EnterpriseOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   contact_1?: Prisma.SortOrder
   contact_2?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -256,13 +238,11 @@ export type EnterpriseOrderByWithRelationInput = {
 
 export type EnterpriseWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  email?: string
   AddressId?: string
   cnpj?: string
   AND?: Prisma.EnterpriseWhereInput | Prisma.EnterpriseWhereInput[]
   OR?: Prisma.EnterpriseWhereInput[]
   NOT?: Prisma.EnterpriseWhereInput | Prisma.EnterpriseWhereInput[]
-  password?: Prisma.StringFilter<"Enterprise"> | string
   name?: Prisma.StringNullableFilter<"Enterprise"> | string | null
   contact_1?: Prisma.StringFilter<"Enterprise"> | string
   contact_2?: Prisma.StringNullableFilter<"Enterprise"> | string | null
@@ -273,12 +253,10 @@ export type EnterpriseWhereUniqueInput = Prisma.AtLeast<{
   members?: Prisma.MemberListRelationFilter
   administrative_modules?: Prisma.AdministrativeModuleListRelationFilter
   roles?: Prisma.RoleListRelationFilter
-}, "id" | "id" | "email" | "AddressId" | "cnpj">
+}, "id" | "id" | "AddressId" | "cnpj">
 
 export type EnterpriseOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   contact_1?: Prisma.SortOrder
   contact_2?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -297,8 +275,6 @@ export type EnterpriseScalarWhereWithAggregatesInput = {
   OR?: Prisma.EnterpriseScalarWhereWithAggregatesInput[]
   NOT?: Prisma.EnterpriseScalarWhereWithAggregatesInput | Prisma.EnterpriseScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Enterprise"> | string
-  email?: Prisma.StringWithAggregatesFilter<"Enterprise"> | string
-  password?: Prisma.StringWithAggregatesFilter<"Enterprise"> | string
   name?: Prisma.StringNullableWithAggregatesFilter<"Enterprise"> | string | null
   contact_1?: Prisma.StringWithAggregatesFilter<"Enterprise"> | string
   contact_2?: Prisma.StringNullableWithAggregatesFilter<"Enterprise"> | string | null
@@ -311,8 +287,6 @@ export type EnterpriseScalarWhereWithAggregatesInput = {
 
 export type EnterpriseCreateInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -328,8 +302,6 @@ export type EnterpriseCreateInput = {
 
 export type EnterpriseUncheckedCreateInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -345,8 +317,6 @@ export type EnterpriseUncheckedCreateInput = {
 
 export type EnterpriseUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -362,8 +332,6 @@ export type EnterpriseUpdateInput = {
 
 export type EnterpriseUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -379,8 +347,6 @@ export type EnterpriseUncheckedUpdateInput = {
 
 export type EnterpriseCreateManyInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -393,8 +359,6 @@ export type EnterpriseCreateManyInput = {
 
 export type EnterpriseUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -406,8 +370,6 @@ export type EnterpriseUpdateManyMutationInput = {
 
 export type EnterpriseUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -425,8 +387,6 @@ export type EnterpriseNullableScalarRelationFilter = {
 
 export type EnterpriseCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   name?: Prisma.SortOrder
   contact_1?: Prisma.SortOrder
   contact_2?: Prisma.SortOrder
@@ -439,8 +399,6 @@ export type EnterpriseCountOrderByAggregateInput = {
 
 export type EnterpriseMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   name?: Prisma.SortOrder
   contact_1?: Prisma.SortOrder
   contact_2?: Prisma.SortOrder
@@ -453,8 +411,6 @@ export type EnterpriseMaxOrderByAggregateInput = {
 
 export type EnterpriseMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  email?: Prisma.SortOrder
-  password?: Prisma.SortOrder
   name?: Prisma.SortOrder
   contact_1?: Prisma.SortOrder
   contact_2?: Prisma.SortOrder
@@ -554,8 +510,6 @@ export type EnterpriseUpdateOneRequiredWithoutRolesNestedInput = {
 
 export type EnterpriseCreateWithoutAddressInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -570,8 +524,6 @@ export type EnterpriseCreateWithoutAddressInput = {
 
 export type EnterpriseUncheckedCreateWithoutAddressInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -602,8 +554,6 @@ export type EnterpriseUpdateToOneWithWhereWithoutAddressInput = {
 
 export type EnterpriseUpdateWithoutAddressInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -618,8 +568,6 @@ export type EnterpriseUpdateWithoutAddressInput = {
 
 export type EnterpriseUncheckedUpdateWithoutAddressInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -634,8 +582,6 @@ export type EnterpriseUncheckedUpdateWithoutAddressInput = {
 
 export type EnterpriseCreateWithoutAdministrative_modulesInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -650,8 +596,6 @@ export type EnterpriseCreateWithoutAdministrative_modulesInput = {
 
 export type EnterpriseUncheckedCreateWithoutAdministrative_modulesInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -682,8 +626,6 @@ export type EnterpriseUpdateToOneWithWhereWithoutAdministrative_modulesInput = {
 
 export type EnterpriseUpdateWithoutAdministrative_modulesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -698,8 +640,6 @@ export type EnterpriseUpdateWithoutAdministrative_modulesInput = {
 
 export type EnterpriseUncheckedUpdateWithoutAdministrative_modulesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -714,8 +654,6 @@ export type EnterpriseUncheckedUpdateWithoutAdministrative_modulesInput = {
 
 export type EnterpriseCreateWithoutMembersInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -730,8 +668,6 @@ export type EnterpriseCreateWithoutMembersInput = {
 
 export type EnterpriseUncheckedCreateWithoutMembersInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -762,8 +698,6 @@ export type EnterpriseUpdateToOneWithWhereWithoutMembersInput = {
 
 export type EnterpriseUpdateWithoutMembersInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -778,8 +712,6 @@ export type EnterpriseUpdateWithoutMembersInput = {
 
 export type EnterpriseUncheckedUpdateWithoutMembersInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -794,8 +726,6 @@ export type EnterpriseUncheckedUpdateWithoutMembersInput = {
 
 export type EnterpriseCreateWithoutRolesInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -810,8 +740,6 @@ export type EnterpriseCreateWithoutRolesInput = {
 
 export type EnterpriseUncheckedCreateWithoutRolesInput = {
   id?: string
-  email: string
-  password: string
   name?: string | null
   contact_1: string
   contact_2?: string | null
@@ -842,8 +770,6 @@ export type EnterpriseUpdateToOneWithWhereWithoutRolesInput = {
 
 export type EnterpriseUpdateWithoutRolesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -858,8 +784,6 @@ export type EnterpriseUpdateWithoutRolesInput = {
 
 export type EnterpriseUncheckedUpdateWithoutRolesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  email?: Prisma.StringFieldUpdateOperationsInput | string
-  password?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contact_1?: Prisma.StringFieldUpdateOperationsInput | string
   contact_2?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -923,8 +847,6 @@ export type EnterpriseCountOutputTypeCountRolesArgs<ExtArgs extends runtime.Type
 
 export type EnterpriseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  email?: boolean
-  password?: boolean
   name?: boolean
   contact_1?: boolean
   contact_2?: boolean
@@ -942,8 +864,6 @@ export type EnterpriseSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 export type EnterpriseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  email?: boolean
-  password?: boolean
   name?: boolean
   contact_1?: boolean
   contact_2?: boolean
@@ -957,8 +877,6 @@ export type EnterpriseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
 
 export type EnterpriseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  email?: boolean
-  password?: boolean
   name?: boolean
   contact_1?: boolean
   contact_2?: boolean
@@ -972,8 +890,6 @@ export type EnterpriseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
 
 export type EnterpriseSelectScalar = {
   id?: boolean
-  email?: boolean
-  password?: boolean
   name?: boolean
   contact_1?: boolean
   contact_2?: boolean
@@ -984,7 +900,7 @@ export type EnterpriseSelectScalar = {
   updatedAt?: boolean
 }
 
-export type EnterpriseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "name" | "contact_1" | "contact_2" | "AddressId" | "AccountVerification" | "cnpj" | "createdAt" | "updatedAt", ExtArgs["result"]["enterprise"]>
+export type EnterpriseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "contact_1" | "contact_2" | "AddressId" | "AccountVerification" | "cnpj" | "createdAt" | "updatedAt", ExtArgs["result"]["enterprise"]>
 export type EnterpriseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   address?: boolean | Prisma.AddressDefaultArgs<ExtArgs>
   members?: boolean | Prisma.Enterprise$membersArgs<ExtArgs>
@@ -1009,8 +925,6 @@ export type $EnterprisePayload<ExtArgs extends runtime.Types.Extensions.Internal
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    email: string
-    password: string
     name: string | null
     contact_1: string
     contact_2: string | null
@@ -1447,8 +1361,6 @@ export interface Prisma__EnterpriseClient<T, Null = never, ExtArgs extends runti
  */
 export interface EnterpriseFieldRefs {
   readonly id: Prisma.FieldRef<"Enterprise", 'String'>
-  readonly email: Prisma.FieldRef<"Enterprise", 'String'>
-  readonly password: Prisma.FieldRef<"Enterprise", 'String'>
   readonly name: Prisma.FieldRef<"Enterprise", 'String'>
   readonly contact_1: Prisma.FieldRef<"Enterprise", 'String'>
   readonly contact_2: Prisma.FieldRef<"Enterprise", 'String'>
